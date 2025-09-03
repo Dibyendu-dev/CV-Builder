@@ -45,13 +45,13 @@ export function SectionReorder({ sections, moveSection }) {
                           className="px-2 py-1 border rounded-lg"
                           onClick={() => moveSection(i, -1)}
                         >
-                          Up
+                          ⬆️
                         </button>
                         <button
                           className="px-2 py-1 border rounded-lg"
                           onClick={() => moveSection(i, 1)}
                         >
-                          Down
+                          ⬇️
                         </button>
                       </div>
                     </li>
