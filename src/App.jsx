@@ -1,7 +1,7 @@
 import Header from "./components/ui/Header";
 import Leftbar from "./components/ui/Leftbar";
 import { Rightbar } from "./components/ui/Rightbar";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function App() {
   const [personal, setPersonal] = useState({
@@ -39,6 +39,61 @@ function App() {
 
   const [template, setTemplate] = useState(0);
   const cvRef = useRef(null);
+  const [hydrated, setHydrated] = useState(false);
+
+  // Load persisted state on first mount
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem("cv_builder_state");
+      if (!raw) return;
+      const parsed = JSON.parse(raw);
+      if (parsed.personal) setPersonal(parsed.personal);
+      if (Array.isArray(parsed.education)) setEducation(parsed.education);
+      if (Array.isArray(parsed.experience)) setExperience(parsed.experience);
+      if (Array.isArray(parsed.skills)) setSkills(parsed.skills);
+      if (typeof parsed.objective === "string") setObjective(parsed.objective);
+      if (Array.isArray(parsed.references)) setReferences(parsed.references);
+      if (Array.isArray(parsed.projects)) setProjects(parsed.projects);
+      if (Array.isArray(parsed.sections)) setSections(parsed.sections);
+      if (typeof parsed.template === "number") setTemplate(parsed.template);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setHydrated(true);
+    }
+  }, []);
+
+  // Persist state whenever it changes
+  useEffect(() => {
+    if (!hydrated) return;
+    const toSave = {
+      personal,
+      education,
+      experience,
+      skills,
+      objective,
+      references,
+      projects,
+      sections,
+      template,
+    };
+    try {
+      localStorage.setItem("cv_builder_state", JSON.stringify(toSave));
+    } catch (error) {
+      console.error(error); // storage might be full/blocked; fail silently
+    }
+  }, [
+    personal,
+    education,
+    experience,
+    skills,
+    objective,
+    references,
+    projects,
+    sections,
+    template,
+    hydrated,
+  ]);
 
   return (
     <>
