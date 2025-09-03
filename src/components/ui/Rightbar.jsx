@@ -10,9 +10,10 @@ export const Rightbar = ({
   objective = "",
   references = [],
   projects = [],
+  template = 0,
+  cvRef,
 }) => {
-  const [template, setTemplate] = useState(0);
-  const cvRef = useRef(null);
+  const fallbackRef = useRef(null);
 
   const orderedData = useMemo(
     () => ({
@@ -47,7 +48,10 @@ export const Rightbar = ({
           Template {template + 1} / 5
         </span>
       </div>
-      <div ref={cvRef} className="bg-white border rounded-2xl shadow p-6">
+      <div
+        ref={cvRef || fallbackRef}
+        className="bg-white border rounded-2xl shadow p-6"
+      >
         <CVPreview template={template} orderedData={orderedData} />
       </div>
     </div>
