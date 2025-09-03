@@ -6,6 +6,7 @@ import { ExperienceForm } from "../forms/ExperienceForm";
 import { ObjectiveForm } from "../forms/ObjectiveForm";
 import { ReferencesForm } from "../forms/ReferencesForm";
 import { ProjectsForm } from "../forms/ProjectForm";
+import { SectionReorder } from "./SectionReorder";
 
 function Leftbar() {
   const [step, setStep] = useState(0);
@@ -29,6 +30,26 @@ function Leftbar() {
   const [references, setReferences] = useState([]);
 
   const [projects, setProjects] = useState([]);
+
+      const DEFAULT_SECTIONS = [
+    "Personal",
+    "Education",
+    "Experience",
+    "Skills",
+    "Objective",
+    "References",
+    "Projects",
+    ];
+
+    const [sections, setSections] = useState(DEFAULT_SECTIONS);
+
+    const moveSection = (index, dir) => {
+    const swapWith = index + dir;
+    if (swapWith < 0 || swapWith >= sections.length) return;
+    const next = sections.slice();
+    [next[index], next[swapWith]] = [next[swapWith], next[index]];
+    setSections(next);
+    };
 
   return (
     <div>
@@ -71,7 +92,7 @@ function Leftbar() {
           </div>
         </div>
 
-        {/* <SectionReorder sections={sections} moveSection={moveSection} /> */}
+        <SectionReorder sections={sections} moveSection={moveSection} />
       </div>
     </div>
   );
