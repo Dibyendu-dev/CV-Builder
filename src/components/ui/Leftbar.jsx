@@ -1,55 +1,33 @@
 import { useState } from "react";
 import { Stepper } from "./Stepper";
-import { PersonalForm} from "../forms/PersonalForm";
+import { PersonalForm } from "../forms/PersonalForm";
 import { EducationForm } from "../forms/EducationalForm";
 import { ExperienceForm } from "../forms/ExperienceForm";
 import { ObjectiveForm } from "../forms/ObjectiveForm";
 import { ReferencesForm } from "../forms/ReferencesForm";
 import { ProjectsForm } from "../forms/ProjectForm";
+import { SkillsForm } from "../forms/SkillsForm";
 import { SectionReorder } from "./SectionReorder";
 
-function Leftbar() {
+function Leftbar({
+  personal,
+  setPersonal,
+  education,
+  setEducation,
+  experience,
+  setExperience,
+  skills,
+  setSkills,
+  objective,
+  setObjective,
+  references,
+  setReferences,
+  projects,
+  setProjects,
+  sections,
+  moveSection,
+}) {
   const [step, setStep] = useState(0);
-
-  const [personal, setPersonal] = useState({
-    name: "",
-    address: "",
-    email: "",
-    phone: "",
-    photo: "",
-  });
-
-  const [education, setEducation] = useState([]);
-
-  const [experience, setExperience] = useState([]);
-
-  const [skills, setSkills] = useState([]);
-
-  const [objective, setObjective] = useState("");
-
-  const [references, setReferences] = useState([]);
-
-  const [projects, setProjects] = useState([]);
-
-      const DEFAULT_SECTIONS = [
-    "Personal",
-    "Education",
-    "Experience",
-    "Skills",
-    "Objective",
-    "References",
-    "Projects",
-    ];
-
-    const [sections, setSections] = useState(DEFAULT_SECTIONS);
-
-    const moveSection = (index, dir) => {
-    const swapWith = index + dir;
-    if (swapWith < 0 || swapWith >= sections.length) return;
-    const next = sections.slice();
-    [next[index], next[swapWith]] = [next[swapWith], next[index]];
-    setSections(next);
-    };
 
   return (
     <div>

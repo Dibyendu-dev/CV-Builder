@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { CRUDCard } from "../atoms/CRUDCard";
+import { Input } from "../atoms/Input";
+import { Textarea } from "../atoms/Textarea";
 
 export function ExperienceForm({ list, setList }) {
-
   const [draft, setDraft] = useState({
     company: "",
     title: "",
@@ -11,8 +12,8 @@ export function ExperienceForm({ list, setList }) {
     details: "",
   });
 
-   const uid = () => Math.random().toString(36).slice(2, 9);
-   
+  const uid = () => Math.random().toString(36).slice(2, 9);
+
   const [editId, setEditId] = useState(null);
   const save = () => {
     if (!draft.company || !draft.title) return;

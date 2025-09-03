@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { uid } from "../../utils/uid";
 import { CRUDCard } from "../atoms/CRUDCard";
+import { Input } from "../atoms/Input";
+import { Textarea } from "../atoms/Textarea";
 
 export function ProjectsForm({ list, setList }) {
   const [draft, setDraft] = useState({ title: "", description: "", link: "" });

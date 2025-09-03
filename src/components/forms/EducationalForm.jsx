@@ -1,16 +1,16 @@
 import { useState } from "react";
 import { CRUDCard } from "../atoms/CRUDCard";
+import { Input } from "../atoms/Input";
 
 export function EducationForm({ list, setList }) {
+  const uid = () => Math.random().toString(36).slice(2, 9);
 
-    const uid = () => Math.random().toString(36).slice(2, 9);
-
-    const [draft, setDraft] = useState({
-        course: "",
-        school: "",
-        year: "",
-        grade: "",
-    });
+  const [draft, setDraft] = useState({
+    course: "",
+    school: "",
+    year: "",
+    grade: "",
+  });
 
   const [editId, setEditId] = useState(null);
 
