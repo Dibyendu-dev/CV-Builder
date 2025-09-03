@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { CRUDCard } from "../atoms/CRUDCard";
 
 export function EducationForm({ list, setList }) {
 
@@ -33,7 +34,7 @@ export function EducationForm({ list, setList }) {
       grade: it.grade || "",
     });
   };
-  
+
   const onDel = (id) => setList(list.filter((it) => it.id !== id));
 
   return (

@@ -1,7 +1,6 @@
 import { Input } from "../atoms/Input";
 
 export function PersonalForm({ value, onChange }) {
-
   const onFile = (e) => {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -9,18 +8,18 @@ export function PersonalForm({ value, onChange }) {
     reader.onload = () =>
       onChange({
         ...value,
-        photo:  (reader.result || ""),
+        photo: reader.result || "",
       });
     reader.readAsDataURL(file);
   };
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        <Input
-          label="Full Name"
-          value={value.name}
-          onChange={(v) => onChange({ ...value, name: v })}
-        />
+      <Input
+        label="Full Name"
+        value={value.name}
+        onChange={(v) => onChange({ ...value, name: v })}
+      />
       <Input
         label="Email"
         value={value.email}
