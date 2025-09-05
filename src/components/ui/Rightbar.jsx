@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from "react";
+import { useMemo, useRef } from "react";
 import { CVPreview } from "./CVPreview";
 
 export const Rightbar = ({
