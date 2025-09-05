@@ -1,4 +1,6 @@
-import { FileText, Eye, Download, Users, Zap, Shield, Mail, MapPin, Phone } from 'lucide-react';
+import {  Eye, Zap, Shield,  } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import CVpage from './CVpage';
 export const HomePage = () => (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -11,12 +13,12 @@ export const HomePage = () => (
             Create professional, ATS-friendly CVs with our intuitive builder. See your changes in real-time with our live preview feature. No sign-up required.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-black text-white px-8 py-4 text-lg font-semibold hover:bg-gray-800 transition-colors">
+            <Link className="bg-black text-white px-8 py-4 text-lg font-semibold hover:bg-gray-800 transition-colors rounded-md "
+            to="/createcv"
+            >
               Start Building Now
-            </button>
-            <button className="border-2 border-black text-black px-8 py-4 text-lg font-semibold hover:bg-black hover:text-white transition-colors">
-              View Templates
-            </button>
+            </Link>
+           
           </div>
         </div>
       </section>
@@ -104,11 +106,9 @@ export const HomePage = () => (
             Ready to Land Your Dream Job?
           </h2>
           <p className="text-xl text-gray-300 mb-8">
-            Join thousands who have created professional CVs with CVCraft
+            Join thousands who have created professional CVs with CVCrafts
           </p>
-          <button className="bg-white text-black px-8 py-4 text-lg font-semibold hover:bg-gray-100 transition-colors">
-            Create Your CV Now
-          </button>
+         
         </div>
       </section>
     </div>
