@@ -5,3 +5,63 @@
   font-family: "Overlock SC", sans-serif;
   font-style: normal;
 }
+
+/* PDF Export Styles */
+.pdf-export {
+  /* Ensure consistent rendering for PDF */
+  transform: none !important;
+  filter: none !important;
+  backdrop-filter: none !important;
+  box-shadow: none !important;
+  background: white !important;
+  color: black !important;
+  position: static !important;
+  overflow: visible !important;
+  z-index: auto !important;
+}
+
+.pdf-export * {
+  /* Override any problematic styles for PDF generation */
+  transform: none !important;
+  filter: none !important;
+  backdrop-filter: none !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  position: static !important;
+  overflow: visible !important;
+  z-index: auto !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.pdf-export a {
+  /* Remove link styling for PDF */
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+.pdf-export img {
+  /* Ensure images render properly */
+  max-width: 100% !important;
+  height: auto !important;
+  display: block !important;
+}
+
+.pdf-export h1,
+.pdf-export h2,
+.pdf-export h3,
+.pdf-export h4,
+.pdf-export h5,
+.pdf-export h6 {
+  /* Ensure headings are visible */
+  color: black !important;
+  font-weight: bold !important;
+}
+
+.pdf-export p,
+.pdf-export div,
+.pdf-export span {
+  /* Ensure text is visible */
+  color: black !important;
+  opacity: 1 !important;
+}

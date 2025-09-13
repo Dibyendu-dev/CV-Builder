@@ -50,7 +50,8 @@ export const Rightbar = ({
       </div>
       <div
         ref={cvRef || fallbackRef}
-        className="bg-white border rounded-2xl shadow p-6"
+        className="bg-white border rounded-2xl shadow p-6 min-h-[800px] w-full"
+        style={{ minWidth: "400px" }}
       >
         <CVPreview template={template} orderedData={orderedData} />
       </div>
