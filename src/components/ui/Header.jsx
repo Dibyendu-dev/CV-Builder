@@ -6,38 +6,7 @@ import { useState } from "react";
 function Header({ template, setTemplate, cvRef, onClearData }) {
   const [generating, setGenerating] = useState(false);
 
-  const testContent = () => {
-    const node = cvRef?.current;
-    if (!node) {
-      alert("CV preview not ready");
-      return;
-    }
-
-    console.log("CV Node:", node);
-    console.log("CV Node innerHTML:", node.innerHTML);
-    console.log("CV Node textContent:", node.textContent);
-    console.log("CV Node rect:", node.getBoundingClientRect());
-
-    // Show content in a popup for debugging
-    const popup = window.open("", "_blank", "width=800,height=600");
-    popup.document.write(`
-      <html>
-        <head><title>CV Content Debug</title></head>
-        <body>
-          <h1>CV Content Debug</h1>
-          <h2>Text Content:</h2>
-          <pre>${node.textContent}</pre>
-          <h2>HTML Content:</h2>
-          <pre>${node.innerHTML}</pre>
-          <h2>Rendered Content:</h2>
-          <div style="border: 1px solid #ccc; padding: 10px; margin: 10px;">
-            ${node.innerHTML}
-          </div>
-        </body>
-      </html>
-    `);
-    popup.document.close();
-  };
+ 
   const onDownloadPDF = async () => {
     if (generating) return;
     setGenerating(true);
